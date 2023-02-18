@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
+import { useEffect, useRef } from "react"
 import Battery from "../svgs/battery.svg"
 import Wifi from "../svgs/wifi.svg"
 
@@ -8,11 +9,31 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
+  const timeRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    const evaluateTime = () => {
+      const now = new Date()
+
+      if (!timeRef.current) return
+
+      const hours = "0" + now.getHours()
+      const minutes = "0" + now.getMinutes()
+
+      timeRef.current.innerText = `${hours.slice(-2)}:${minutes.slice(-2)}`
+    }
+
+    evaluateTime()
+
+    setInterval(() => {
+      evaluateTime()
+    }, 1000)
+  }, [])
 
   if (isRootPath) {
     header = (
       <h1 className="w-full bg-black text-white rounded-2xl flex justify-between px-4 py-1">
-        <span>11:12</span>
+        <span ref={timeRef}>11:12</span>
         <Link to="/">{title}</Link>
         <div className="flex gap-1">
           <Wifi />
