@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `0307kwon`,
     author: {
       name: `Kyle Mathews`,
       summary: `who lives and works in San Francisco building useful things.`,
@@ -21,6 +21,7 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
