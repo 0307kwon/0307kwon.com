@@ -1,5 +1,4 @@
 import { graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import App from "../components/app"
 
@@ -27,17 +26,13 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <div className="">
-        <App name={"About Me"}>
-          <StaticImage
-            layout="fixed"
-            formats={["auto", "webp", "avif"]}
-            src="../images/apps/about-me.png"
-            width={64}
-            height={64}
-            quality={95}
-            alt="Character"
-          />
-        </App>
+        <App
+          name={"About Me"}
+          img={{
+            name: "about-me.png",
+            alt: "Sejin's Character",
+          }}
+        />
       </div>
     </Layout>
   )
