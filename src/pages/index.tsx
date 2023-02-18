@@ -26,17 +26,16 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="bg-white">
+      <div className="">
         <App name={"About Me"}>
           <StaticImage
-            className="bio-avatar"
             layout="fixed"
             formats={["auto", "webp", "avif"]}
             src="../images/apps/about-me.png"
             width={64}
             height={64}
             quality={95}
-            alt="Profile picture"
+            alt="Character"
           />
         </App>
       </div>
