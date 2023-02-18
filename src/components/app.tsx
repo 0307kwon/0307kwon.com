@@ -8,9 +8,10 @@ interface Props {
     name: string
     alt: string
   }
+  displayName?: boolean
 }
 
-const App = ({ name, img }: Props) => {
+const App = ({ name, img, displayName = true }: Props) => {
   const data = useStaticQuery(graphql`
     query Query {
       allImageSharp {
@@ -35,13 +36,26 @@ const App = ({ name, img }: Props) => {
   }, [data])
 
   return (
-    <div className="text-sm text-white">
+    <div className="relative text-sm text-white h-fit">
       <div className="overflow-hidden flex flex-col bg-gray400 w-16 h-16 rounded-2xl">
         {gatsbyImageData && (
           <GatsbyImage image={gatsbyImageData} alt={img.alt} />
         )}
       </div>
-      {name}
+      <p
+        style={
+          displayName
+            ? {}
+            : {
+                opacity: 0,
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }
+        }
+      >
+        {name}
+      </p>
     </div>
   )
 }

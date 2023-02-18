@@ -37,11 +37,11 @@ const Layout = ({ location, title, children }) => {
             src="../images/bg-img.jpeg"
             alt=""
           />
-          <div className="relative z-10">
+          <div className="relative z-10 h-full flex flex-col">
             <header className="w-full flex justify-center px-5 mb-4">
               {header}
             </header>
-            <main>{children}</main>
+            <main className="relative h-full">{children}</main>
           </div>
         </div>
       </div>
