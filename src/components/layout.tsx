@@ -1,6 +1,8 @@
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
+import Battery from "../svgs/battery.svg"
+import Wifi from "../svgs/wifi.svg"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -12,7 +14,10 @@ const Layout = ({ location, title, children }) => {
       <h1 className="w-full bg-black text-white rounded-2xl flex justify-between px-4 py-1">
         <span>11:12</span>
         <Link to="/">{title}</Link>
-        <span>battery</span>
+        <div className="flex gap-1">
+          <Wifi />
+          <Battery />
+        </div>
       </h1>
     )
   } else {
