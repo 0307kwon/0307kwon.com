@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { useMemo } from "react"
 
@@ -8,10 +8,11 @@ interface Props {
     name: string
     alt: string
   }
+  linkTo: string
   displayName?: boolean
 }
 
-const App = ({ name, img, displayName = true }: Props) => {
+const App = ({ name, img, linkTo, displayName = true }: Props) => {
   const data = useStaticQuery(graphql`
     query Query {
       allImageSharp {
@@ -36,35 +37,37 @@ const App = ({ name, img, displayName = true }: Props) => {
   }, [data])
 
   return (
-    <div
-      className="relative text-sm text-white h-fit w-fit flex flex-col items-center
+    <Link to={linkTo}>
+      <div
+        className="relative text-sm text-white h-fit w-fit flex flex-col items-center
     sm:text-base
     "
-    >
-      <div
-        className="overflow-hidden flex flex-col bg-gray400 w-16 h-16 mb-1 rounded-2xl
+      >
+        <div
+          className="overflow-hidden flex flex-col bg-gray400 w-16 h-16 mb-1 rounded-2xl
       sm:w-20 sm:h-20
       "
-      >
-        {gatsbyImageData && (
-          <GatsbyImage image={gatsbyImageData} alt={img.alt} />
-        )}
+        >
+          {gatsbyImageData && (
+            <GatsbyImage image={gatsbyImageData} alt={img.alt} />
+          )}
+        </div>
+        <p
+          style={
+            displayName
+              ? {}
+              : {
+                  opacity: 0,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }
+          }
+        >
+          {name}
+        </p>
       </div>
-      <p
-        style={
-          displayName
-            ? {}
-            : {
-                opacity: 0,
-                position: "absolute",
-                top: 0,
-                left: 0,
-              }
-        }
-      >
-        {name}
-      </p>
-    </div>
+    </Link>
   )
 }
 

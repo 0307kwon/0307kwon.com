@@ -5,10 +5,9 @@ import { useEffect, useRef } from "react"
 import Battery from "../svgs/battery.svg"
 import Wifi from "../svgs/wifi.svg"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
   const timeRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
@@ -29,27 +28,6 @@ const Layout = ({ location, title, children }) => {
       evaluateTime()
     }, 1000)
   }, [])
-
-  if (isRootPath) {
-    header = (
-      <h1 className="w-full bg-black text-white rounded-2xl flex justify-between px-4 py-1">
-        <span ref={timeRef}>11:12</span>
-        <Link to="/" className="font-bold">
-          {title}
-        </Link>
-        <div className="flex gap-1">
-          <Wifi />
-          <Battery />
-        </div>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="" to="/">
-        {title}
-      </Link>
-    )
-  }
 
   return (
     <div
@@ -76,7 +54,16 @@ const Layout = ({ location, title, children }) => {
           />
           <div className="relative z-10 h-full flex flex-col items-center">
             <header className="w-full flex justify-center px-5 mb-4 sm:max-w-2xl">
-              {header}
+              <h1 className="w-full bg-black text-white rounded-2xl flex justify-between px-4 py-1">
+                <span ref={timeRef}>11:12</span>
+                <Link to="/" className="font-bold">
+                  0307kwon
+                </Link>
+                <div className="flex gap-1">
+                  <Wifi />
+                  <Battery />
+                </div>
+              </h1>
             </header>
             <main className="relative h-full w-full sm:px-[5%]">
               {children}

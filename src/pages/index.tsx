@@ -2,60 +2,42 @@ import { graphql } from "gatsby"
 import * as React from "react"
 import App from "../components/app"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
+const Index = () => {
   return (
-    <Layout location={location} title={siteTitle}>
-      <div className="flex flex-col h-full">
-        <div className="h-full w-full">
-          <App
-            name={"About Me"}
-            img={{
-              name: "about-me.png",
-              alt: "Sejin's Character",
-            }}
-          />
-        </div>
-        <div
-          className="relative flex gap-2 py-3 px-5 w-fit self-center
+    <div className="flex flex-col h-full">
+      <div className="h-full w-full">
+        <App
+          name={"About Me"}
+          img={{
+            name: "about-me.png",
+            alt: "Sejin's Character",
+          }}
+          linkTo="/"
+        />
+      </div>
+      <div
+        className="relative flex gap-2 py-3 px-5 w-fit self-center
         sm:px-16
         "
-        >
-          <div className="bg-white opacity-50 absolute w-full h-full top-0 left-0 rounded-t-2xl" />
-          <App
-            name={"Blog"}
-            img={{
-              name: "message.png",
-              alt: "message bubble",
-            }}
-            displayName={false}
-          />
-        </div>
+      >
+        <div className="bg-white opacity-50 absolute w-full h-full top-0 left-0 rounded-t-2xl" />
+        <App
+          name={"Blog"}
+          img={{
+            name: "message.png",
+            alt: "message bubble",
+          }}
+          displayName={false}
+          linkTo={"/blog"}
+        />
       </div>
-    </Layout>
+    </div>
   )
 }
 
-export default BlogIndex
+export default Index
 
 /**
  * Head export to define metadata for the page
