@@ -42,26 +42,10 @@ const BlogIndex = ({ data, location }) => {
         >
           <div className="bg-white opacity-50 absolute w-full h-full top-0 left-0 rounded-t-2xl" />
           <App
-            name={"About Me"}
+            name={"Blog"}
             img={{
-              name: "about-me.png",
-              alt: "Sejin's Character",
-            }}
-            displayName={false}
-          />
-          <App
-            name={"About Me"}
-            img={{
-              name: "about-me.png",
-              alt: "Sejin's Character",
-            }}
-            displayName={false}
-          />
-          <App
-            name={"About Me"}
-            img={{
-              name: "about-me.png",
-              alt: "Sejin's Character",
+              name: "message.png",
+              alt: "message bubble",
             }}
             displayName={false}
           />
