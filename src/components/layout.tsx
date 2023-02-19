@@ -53,11 +53,20 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div
-      className="flex justify-center items-center w-full h-screen"
+      className="flex justify-center items-center w-full h-screen
+      sm:p-5
+      "
       data-is-root-path={isRootPath}
     >
-      <div className="relative max-w-md w-full h-full p-3 bg-black rounded-[40px] flex justify-center items-center">
-        <div className="relative overflow-hidden h-full w-full rounded-[40px] pt-2 px-4">
+      <div
+        className="relative max-w-md w-full h-full p-3 bg-black rounded-[40px] flex justify-center items-center
+        sm:max-w-none sm:p-8"
+      >
+        <div
+          className="relative overflow-hidden h-full w-full rounded-[40px] pt-2 px-4
+        sm:pt-4
+        "
+        >
           <StaticImage
             className="blur-sm absolute w-full h-full top-0 left-1/2 -translate-x-1/2"
             layout="fullWidth"
@@ -65,11 +74,13 @@ const Layout = ({ location, title, children }) => {
             src="../images/bg-img.jpeg"
             alt=""
           />
-          <div className="relative z-10 h-full flex flex-col">
-            <header className="w-full flex justify-center px-5 mb-4">
+          <div className="relative z-10 h-full flex flex-col items-center">
+            <header className="w-full flex justify-center px-5 mb-4 sm:max-w-2xl">
               {header}
             </header>
-            <main className="relative h-full">{children}</main>
+            <main className="relative h-full w-full sm:px-[5%]">
+              {children}
+            </main>
           </div>
         </div>
       </div>
