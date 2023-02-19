@@ -34,7 +34,9 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h1 className="w-full bg-black text-white rounded-2xl flex justify-between px-4 py-1">
         <span ref={timeRef}>11:12</span>
-        <Link to="/">{title}</Link>
+        <Link to="/" className="font-bold">
+          {title}
+        </Link>
         <div className="flex gap-1">
           <Wifi />
           <Battery />

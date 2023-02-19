@@ -37,7 +37,6 @@ const BlogIndex = ({ data, location }) => {
         </div>
         <div className="relative flex gap-2 min-h-[6rem] py-3 px-5 w-fit self-center">
           <div className="bg-white opacity-50 absolute w-full h-full top-0 left-0 rounded-t-2xl" />
-
           <App
             name={"About Me"}
             img={{

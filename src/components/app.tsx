@@ -37,7 +37,7 @@ const App = ({ name, img, displayName = true }: Props) => {
 
   return (
     <div className="relative text-sm text-white h-fit">
-      <div className="overflow-hidden flex flex-col bg-gray400 w-16 h-16 rounded-2xl">
+      <div className="overflow-hidden flex flex-col bg-gray400 w-16 h-16 mb-1 rounded-2xl">
         {gatsbyImageData && (
           <GatsbyImage image={gatsbyImageData} alt={img.alt} />
         )}
