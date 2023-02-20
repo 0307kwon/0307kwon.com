@@ -16,6 +16,18 @@ module.exports = {
       fontFamily: {
         sans: ["SeoulHangang", ...defaultTheme.fontFamily.sans],
       },
+      keyframes: {
+        activateApp: {
+          "0%": {},
+          "10%": {
+            filter: "brightness(0) invert(1)",
+          },
+          "100%": {
+            transform: "scale(100)",
+            filter: "brightness(0) invert(1)",
+          },
+        },
+      },
     },
   },
   plugins: [],

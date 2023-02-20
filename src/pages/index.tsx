@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 const Index = () => {
   return (
     <div className="flex flex-col h-full">
-      <div className="h-full w-full">
+      <div className="h-full w-full relative">
         <App
           name={"About Me"}
           img={{

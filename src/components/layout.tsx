@@ -38,11 +38,10 @@ const Layout = ({ location, children }) => {
     >
       <div
         className="relative max-w-md w-full h-full p-3 bg-black rounded-[40px] flex justify-center items-center
-        sm:max-w-none sm:p-8"
+        sm:max-w-none sm:p-6"
       >
         <div
-          className="relative overflow-hidden h-full w-full rounded-[40px] pt-2 px-4
-        sm:pt-4
+          className="relative overflow-hidden h-full w-full rounded-[40px]
         "
         >
           <StaticImage
@@ -53,7 +52,10 @@ const Layout = ({ location, children }) => {
             alt=""
           />
           <div className="relative z-10 h-full flex flex-col items-center">
-            <header className="w-full flex justify-center px-5 mb-4 sm:max-w-2xl">
+            <header
+              className="absolute w-full flex justify-center px-8 top-2 z-50
+              sm:max-w-2xl sm:top-4"
+            >
               <h1 className="w-full bg-black text-white rounded-2xl flex justify-between px-4 py-1">
                 <span ref={timeRef}>11:12</span>
                 <Link to="/" className="font-bold">
@@ -65,7 +67,11 @@ const Layout = ({ location, children }) => {
                 </div>
               </h1>
             </header>
-            <main className="relative h-full w-full sm:px-[5%]">
+            <main
+              id={"layoutMain"}
+              className="relative h-full w-full px-4 pt-14
+              sm:px-[5%] sm:pt-16"
+            >
               {children}
             </main>
           </div>
