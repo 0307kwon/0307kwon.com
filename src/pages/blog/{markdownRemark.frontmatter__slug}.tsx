@@ -1,11 +1,29 @@
 import { graphql } from "gatsby"
 import React from "react"
 import PageLayout from "../../components/pageLayout"
+import "./markdown.css"
 
 const BlogPostTemplate = ({ data }) => {
+  const {
+    markdownRemark: {
+      html,
+      frontmatter: { title, date },
+    },
+  } = data
+
   return (
-    <PageLayout title="블로그">
-      {data.markdownRemark.frontmatter.title}
+    <PageLayout title={title} historyBackPath="/blog">
+      <article
+        className="h-full markdown"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
+        <section
+          dangerouslySetInnerHTML={{ __html: html }}
+          itemProp="articleBody"
+          className="pb-10 px-2"
+        />
+      </article>
     </PageLayout>
   )
 }

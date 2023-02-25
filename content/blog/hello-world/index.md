@@ -3,7 +3,7 @@ slug: "/hello-world"
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
-thumbnail: "./salty_egg.jpg"
+thumbnail: "./thumbnail.jpg"
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -21,19 +21,13 @@ Oh, and here's a great quote from this Wikipedia on
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
 > firm-textured, round yolk that is bright orange-red in color.
 
-![Chinese Salty Egg](./salty_egg.jpg)
+![Chinese Salty Egg](./test.jpg)
 
 You can also write code blocks here!
 
 ```js
 const saltyDuckEgg = "chinese preserved food product"
 ```
-
-| Number | Title                                    | Year |
-| :----- | :--------------------------------------- | ---: |
-| 1      | Harry Potter and the Philosopher’s Stone | 2001 |
-| 2      | Harry Potter and the Chamber of Secrets  | 2002 |
-| 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
 
 [View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
 
@@ -70,28 +64,20 @@ This is a paragraph.
     ##### Header 5
     ###### Header 6
 
-# Header 1
-
 ## Header 2
 
 ### Header 3
 
 #### Header 4
 
-##### Header 5
-
-###### Header 6
-
-    # Header 1 #
     ## Header 2 ##
     ### Header 3 ###
     #### Header 4 ####
-    ##### Header 5 #####
-    ###### Header 6 ######
 
 > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
-    > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+    > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
 > ## This is a header.
 >
@@ -111,8 +97,8 @@ This is a paragraph.
     >     Markdown.generate();
 
 - Red
-- Green
-- Blue
+  - Green
+  - Blue
 
 * Red
 * Green

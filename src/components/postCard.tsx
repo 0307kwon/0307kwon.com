@@ -10,7 +10,6 @@ interface Props {
 }
 
 const PostCard = ({ linkTo, thumbnail, title, description }: Props) => {
-  console.log(linkTo)
   return (
     <article className="bg-gray400 rounded-md flex h-24 p-2 gap-3">
       <div className="bg-white min-w-[80px] w-[80px] rounded-md relative overflow-hidden">

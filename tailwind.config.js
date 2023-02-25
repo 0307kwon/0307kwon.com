@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const defaultTheme = require("tailwindcss/defaultTheme")
+const plugin = require("tailwindcss/plugin")
 
 module.exports = {
   content: [
@@ -32,5 +33,23 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase, theme }) {
+      // addBase({
+      //   ".markdown": {
+      //     p: {
+      //       padding: "0.25rem 0 0.25rem 0",
+      //     },
+      //     blockquote: {
+      //       "&::before": {
+      //         content: "",
+      //         display: "block",
+      //         width: "0.5rem",
+      //         background: "black",
+      //       },
+      //     },
+      //   },
+      // })
+    }),
+  ],
 }

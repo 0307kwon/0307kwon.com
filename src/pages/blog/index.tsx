@@ -44,7 +44,7 @@ export const pageQuery = graphql`
           slug
           thumbnail {
             childImageSharp {
-              gatsbyImageData(width: 100)
+              gatsbyImageData
             }
           }
           title
