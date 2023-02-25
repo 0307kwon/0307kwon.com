@@ -12,6 +12,8 @@ module.exports = {
       colors: {
         gray600: "#666666",
         gray400: "#D9D9D9",
+        kwonBlown: "#815853",
+        kwonBlownText: "#F9EADD",
       },
       fontFamily: {
         sans: ["SeoulHangang", ...defaultTheme.fontFamily.sans],
