@@ -1,219 +1,59 @@
 ---
-slug: "/hello-world"
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
-thumbnail: "./thumbnail.jpg"
+slug: "/algorithm/2166"
+title: "[백준] 다각형의 면적 문제 풀이"
+date: "2023-02-26T22:12:03.284Z"
+description: "벡터의 외적에 관한 문제입니다."
+thumbnail: "./thumbnail.png"
 ---
 
-This is my first post on my new fake blog! How exciting!
+## 문제 소개
 
-I'm sure I'll write a lot more interesting things in the future.
+골드 문제는 처음 풀어보는데, 수학 개념의 시작인 것 같다.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+수학에 조금 약한 편인데 지금부터 열심히... 해보는 걸로
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+<br/>
 
-![Chinese Salty Egg](./test.jpg)
+[다각형의 면적](https://www.acmicpc.net/problem/2166)
 
-You can also write code blocks here!
+모든 다각형은 삼각형으로 나눌 수 있다... 라는 것까지 생각하고
 
-```js
-const saltyDuckEgg = "chinese preserved food product"
-```
+어떻게 삼각형을 겹치지 않도록 해야하며, 삼각형을 언제까지 만들어내어야하는지(종료 조건)를 생각해내지 못했다.
 
-[View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
+2시간 이상 흘렀음에도 문제를 풀이하지 못했으므로, 정답을 확인하고 풀었다.
 
-This is a paragraph.
 
-    This is a paragraph.
+## 풀이
 
-# Header 1
+[참고한 블로그 글](https://kibbomi.tistory.com/204)
 
-## Header 2
+우선 삼각형의 크기는 두 벡터의 외적으로 구할 수 있다. ([외적의 성분 표현 참고](http://bowbowbow.tistory.com/14))
 
-    Header 1
-    ========
+외적의 크기는 두 벡터가 이루는 평행사변형의 크기와 같은데
 
-    Header 2
-    --------
+우리가 구하려고 하는 삼각형의 크기는 해당 평행사변형의 크기 / 2 를 하면 구할 수 있다.
 
-# Header 1
+<br/>
 
-## Header 2
+여기서 궁금증은 외적은 3차원 개념인데 2차원에 적용할 수 있을까 하는 것인데
 
-### Header 3
+2차원 평면 위의 벡터는 z축 값이 0인 벡터를 사용하면 되므로 문제 없다.
 
-#### Header 4
+<br/>
 
-##### Header 5
+따라서 2차원 평면 위 두 벡터의 외적은 다음과 같다.
 
-###### Header 6
+`벡터 a x 벡터 b = (0,0, ax*by - ay*bx)`
 
-    # Header 1
-    ## Header 2
-    ### Header 3
-    #### Header 4
-    ##### Header 5
-    ###### Header 6
+오른손 법칙에 의해 `ax*by - ay*bx` 가 양수이면 벡터 b는 벡터 a로부터
 
-## Header 2
+반시계 방향에 있고, 음수이면 시계 방향에 있다.
 
-### Header 3
+<br/>
 
-#### Header 4
+음수와 양수가 중요한 이유는 이 문제에서 한 점을 기준으로 순서대로 벡터를 정하고, 해당 벡터를 외적을 하게되었을 때, 계산되는 벡터의 상대적인 방향에
+따라서 겹치는 삼각형의 크기가 상쇄되기 때문이다. ([여기 그림 참고](https://kibbomi.tistory.com/204))
 
-    ## Header 2 ##
-    ### Header 3 ###
-    #### Header 4 ####
+<br/>
 
-> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-    > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-> ## This is a header.
->
-> 1. This is the first list item.
-> 2. This is the second list item.
->
-> Here's some example code:
->
->     Markdown.generate();
-
-    > ## This is a header.
-    > 1. This is the first list item.
-    > 2. This is the second list item.
-    >
-    > Here's some example code:
-    >
-    >     Markdown.generate();
-
-- Red
-  - Green
-  - Blue
-
-* Red
-* Green
-* Blue
-
-- Red
-- Green
-- Blue
-
-```markdown
-- Red
-- Green
-- Blue
-
-* Red
-* Green
-* Blue
-
-- Red
-- Green
-- Blue
-```
-
-- `code goes` here in this line
-- **bold** goes here
-
-```markdown
-- `code goes` here in this line
-- **bold** goes here
-```
-
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
-
-```markdown
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
-```
-
-1. `code goes` here in this line
-1. **bold** goes here
-
-```markdown
-1. `code goes` here in this line
-1. **bold** goes here
-```
-
-Paragraph:
-
-    Code
-
-<!-- -->
-
-    Paragraph:
-
-        Code
-
----
-
----
-
----
-
----
-
----
-
-    * * *
-
-    ***
-
-    *****
-
-    - - -
-
-    ---------------------------------------
-
-This is [an example](http://example.com "Example") link.
-
-[This link](http://example.com) has no title attr.
-
-This is [an example][id] reference-style link.
-
-[id]: http://example.com "Optional Title"
-
-    This is [an example](http://example.com "Example") link.
-
-    [This link](http://example.com) has no title attr.
-
-    This is [an example] [id] reference-style link.
-
-    [id]: http://example.com "Optional Title"
-
-_single asterisks_
-
-_single underscores_
-
-**double asterisks**
-
-**double underscores**
-
-    *single asterisks*
-
-    _single underscores_
-
-    **double asterisks**
-
-    __double underscores__
-
-This paragraph has some `code` in it.
-
-    This paragraph has some `code` in it.
-
-![Alt Text](https://via.placeholder.com/200x50 "Image Title")
-
-    ![Alt Text](https://via.placeholder.com/200x50 "Image Title")
+외적을 사용하는 이유가 바로 삼각형이 서로 겹치는 부분에 대한 처리를 위해서이다.
