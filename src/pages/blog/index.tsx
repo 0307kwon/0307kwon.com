@@ -3,6 +3,7 @@ import React from "react"
 import PageLayout from "../../components/pageLayout"
 import PostCard from "../../components/postCard"
 import Search from "../../svgs/search.svg"
+import "./index.css"
 
 const blog = ({ data }) => {
   return (

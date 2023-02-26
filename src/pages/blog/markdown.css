@@ -25,16 +25,19 @@
 }
 
 .markdown h2 {
+  margin-top: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .markdown h3 {
+  margin-top: 1rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 .markdown h4 {
+  margin-top: 1rem;
   font-size: 1.125rem;
   font-weight: 600;
 }
