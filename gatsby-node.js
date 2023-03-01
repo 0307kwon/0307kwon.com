@@ -5,11 +5,54 @@
  */
 
 const path = require(`path`)
+const _ = require("lodash")
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ graphql, actions, reporter }) => {}
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+  const blogTemplate = path.resolve("src/templates/blogPostList.tsx")
+
+  const result = await graphql(`
+    {
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: { frontmatter: { tag: SELECT } }) {
+          fieldValue
+        }
+      }
+    }
+  `)
+
+  // handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  // Extract tag data from query
+  const tags = result.data.tagsGroup.group
+
+  createPage({
+    path: `/blog`,
+    component: blogTemplate,
+    context: {
+      tags: tags.map(t => t.fieldValue),
+    },
+  })
+
+  // Make tag pages
+  tags.forEach(tag => {
+    createPage({
+      path: `/blog/tag/${_.kebabCase(tag.fieldValue)}`,
+      component: blogTemplate,
+      context: {
+        tags: [tag.fieldValue],
+      },
+    })
+  })
+}
 
 /**
  * @type {import('gatsby').GatsbyNode['onCreateNode']}

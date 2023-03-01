@@ -1,9 +1,10 @@
 ---
-slug: "/algorithm/2166"
+slug: "/algorithm-2166"
 title: "[백준] 다각형의 면적 문제 풀이"
 date: "2023-02-26T22:12:03.284Z"
 description: "벡터의 외적에 관한 문제입니다."
 thumbnail: "./thumbnail.png"
+tag: ["algorithm"]
 ---
 
 ## 문제 소개
