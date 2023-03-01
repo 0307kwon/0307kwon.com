@@ -24,12 +24,13 @@ const blog = ({ data }) => {
   return (
     <PageLayout title="블로그" historyBackPath="/">
       <div className="flex flex-col gap-2">
-        <div>
+        <div className="flex gap-1">
           {data.tags.group.map(i => (
             <Tag
               name={i.tag}
               active={currentTagFilter === i.tag}
               onClick={onToggleTag(i.tag)}
+              key={i.tag}
             />
           ))}
         </div>
@@ -45,6 +46,7 @@ const blog = ({ data }) => {
                 thumbnail={thumbnail.childImageSharp.gatsbyImageData}
                 title={title}
                 description={description}
+                key={slug}
               />
             )
           )}
