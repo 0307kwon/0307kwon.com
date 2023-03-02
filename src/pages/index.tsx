@@ -24,6 +24,15 @@ const Index = () => {
       >
         <div className="bg-white opacity-50 absolute w-full h-full top-0 left-0 rounded-t-2xl" />
         <App
+          name={"Photo"}
+          img={{
+            name: "photo.png",
+            alt: "Photo",
+          }}
+          displayName={false}
+          linkTo={"/photo"}
+        />
+        <App
           name={"Blog"}
           img={{
             name: "message.png",
@@ -31,15 +40,6 @@ const Index = () => {
           }}
           displayName={false}
           linkTo={"/blog"}
-        />
-        <App
-          name={"Gallery"}
-          img={{
-            name: "gallery.png",
-            alt: "Gallery",
-          }}
-          displayName={false}
-          linkTo={"/gallery"}
         />
       </div>
     </div>
