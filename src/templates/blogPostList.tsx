@@ -24,7 +24,7 @@ const blog = ({ data }) => {
   return (
     <PageLayout title="블로그" historyBackPath="/">
       <div className="flex flex-col gap-2">
-        <div className="flex gap-1">
+        <div className="flex gap-2 px-1">
           {data.tags.group.map(i => (
             <Tag
               name={i.tag}

@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 
 const Index = () => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full px-[5%]">
       <div className="h-full w-full relative">
         <App
           name={"About Me"}

@@ -51,7 +51,7 @@ const Layout = ({ location, children }) => {
             src="../images/bg-img.jpeg"
             alt=""
           />
-          <div className="relative z-10 h-full flex flex-col items-center">
+          <div className="relative z-10 h-full flex flex-col items-center px-2">
             <header
               className="absolute w-full flex justify-center px-8 top-2 z-50
               sm:max-w-2xl sm:top-4"
@@ -69,8 +69,8 @@ const Layout = ({ location, children }) => {
             </header>
             <main
               id={"layoutMain"}
-              className="relative h-full w-full px-4 pt-14
-              sm:px-[5%] sm:pt-16"
+              className="h-full w-full pt-14 
+              sm:pt-16"
             >
               {children}
             </main>

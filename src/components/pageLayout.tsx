@@ -11,9 +11,9 @@ interface Props {
 const PageLayout = ({ title, children, historyBackPath }: Props) => {
   return (
     <>
-      <div className="bg-white absolute w-full h-full top-0 left-0" />
-      <div className="relative text-gray600 h-full">
-        <div className="relative z-10 pt-2 flex flex-col gap-3 overflow-y-auto h-full">
+      <div className="bg-white absolute w-full h-full top-0 left-0 z-[-1]" />
+      <div className="relative text-gray600 overflow-y-auto h-full">
+        <div className="relative z-10 pt-2 flex flex-col gap-3 max-w-[700px] mx-auto">
           <div className="flex items-center gap-2">
             <div
               onClick={() => {
@@ -26,7 +26,7 @@ const PageLayout = ({ title, children, historyBackPath }: Props) => {
             >
               <Left />
             </div>
-            <h1 className="text-2xl">{title}</h1>
+            <h1 className="text-xl">{title}</h1>
           </div>
           {children}
         </div>

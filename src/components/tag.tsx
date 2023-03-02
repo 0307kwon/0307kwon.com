@@ -10,11 +10,11 @@ const Tag = ({ name, onClick, active = false }: Props) => {
   return (
     <span
       onClick={onClick}
-      className={`inline-block py-1 px-3 rounded-lg transition-all select-none border-gray400 border-solid border-2 text-sm
-      hover:bg-kwonBlown hover:text-kwonBlownText hover:border-kwonBlown 
-      ${active ? "bg-kwonBlown text-kwonBlownText border-kwonBlown" : ""}`}
+      className={`inline-block py-1 rounded-lg transition-all select-none text-sm text-kwonBlown cursor-pointer
+      hover:underline hover:font-bold
+      ${active ? "underline font-bold" : ""}`}
     >
-      {name}
+      #{name}
     </span>
   )
 }
