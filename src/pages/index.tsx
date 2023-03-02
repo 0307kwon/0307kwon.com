@@ -32,6 +32,15 @@ const Index = () => {
           displayName={false}
           linkTo={"/blog"}
         />
+        <App
+          name={"Gallery"}
+          img={{
+            name: "gallery.png",
+            alt: "Gallery",
+          }}
+          displayName={false}
+          linkTo={"/gallery"}
+        />
       </div>
     </div>
   )
