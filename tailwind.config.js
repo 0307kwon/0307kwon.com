@@ -27,6 +27,14 @@ module.exports = {
             filter: "brightness(0) invert(1)",
           },
         },
+        showModal: {
+          "0%": {
+            transform: "translateX(+100%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
       },
     },
   },

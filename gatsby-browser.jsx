@@ -6,8 +6,13 @@ import "@fontsource/montserrat/variable.css"
 import "prismjs/themes/prism.css"
 import React from "react"
 import Layout from "./src/components/layout"
+import ContextModal from "./src/context/contextModal"
 import "./src/global.css"
 
 export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>
+  return (
+    <Layout {...props}>
+      <ContextModal>{element}</ContextModal>
+    </Layout>
+  )
 }

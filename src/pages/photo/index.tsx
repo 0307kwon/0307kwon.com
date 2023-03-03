@@ -1,26 +1,39 @@
 import { graphql } from "gatsby"
 import { IGatsbyImageData } from "gatsby-plugin-image"
-import React from "react"
+import React, { useMemo } from "react"
 import PageLayout from "../../components/pageLayout"
 import PhotoCard from "../../components/photoCard"
+import { useContextModal } from "../../context/contextModal"
 
 const Photo = ({ data }) => {
   const photos: {
     title: string
     images: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }[]
-  }[] = data.allFile.nodes.map(n => {
-    console.log(n)
-    return n.childMarkdownRemark.frontmatter
-  })
+  }[] = useMemo(
+    () =>
+      data.allFile.nodes.map(n => {
+        return n.childMarkdownRemark.frontmatter
+      }),
+    []
+  )
+  const { openModal } = useContextModal()
 
   return (
-    <PageLayout title="Photos 📸" historyBackPath="/">
+    <PageLayout title="Photos 📸" historyBackInteraction={{ path: "/" }}>
       <div className="grid grid-cols-3">
         {photos.map(({ title, images }) => {
           return (
             <PhotoCard
               image={images[0].childImageSharp.gatsbyImageData}
               alt={title}
+              onClick={() => {
+                openModal(
+                  title,
+                  <>
+                    <div>sss</div>
+                  </>
+                )
+              }}
             />
           )
         })}

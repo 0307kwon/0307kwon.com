@@ -14,7 +14,7 @@ const BlogPostTemplate = ({ data }) => {
   } = data
 
   return (
-    <PageLayout title={title} historyBackPath="/blog">
+    <PageLayout title={title} historyBackInteraction={{ path: "/blog" }}>
       <article
         className="markdown px-4"
         itemScope

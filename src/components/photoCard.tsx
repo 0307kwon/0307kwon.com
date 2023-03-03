@@ -1,14 +1,18 @@
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-import React from "react"
+import React, { MouseEventHandler } from "react"
 
 interface Props {
   image: IGatsbyImageData
   alt: string
+  onClick: MouseEventHandler<HTMLDivElement>
 }
 
-const PhotoCard = ({ image, alt }: Props) => {
+const PhotoCard = ({ image, alt, onClick }: Props) => {
   return (
-    <div className="relative w-full pt-[100%] overflow-hidden">
+    <div
+      className="relative w-full pt-[100%] overflow-hidden"
+      onClick={onClick}
+    >
       <GatsbyImage
         image={image}
         alt={alt}

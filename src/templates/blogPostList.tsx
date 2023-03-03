@@ -22,7 +22,12 @@ const blog = ({ data }) => {
   }
 
   return (
-    <PageLayout title="블로그" historyBackPath="/">
+    <PageLayout
+      title="블로그"
+      historyBackInteraction={{
+        path: "/",
+      }}
+    >
       <div className="flex flex-col gap-2">
         <div className="flex gap-2 px-1">
           {data.tags.group.map(i => (
